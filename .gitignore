@@ -1,0 +1,5 @@
+# 歌詞タイミングの作成ツールとその作業ファイル（手元のフォルダの場所が入るので公開しない）
+tools/lyrics_sync.py
+tools/lyrics_text/
+tools/work/
+__pycache__/
