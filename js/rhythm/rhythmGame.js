@@ -414,9 +414,10 @@
     }
   };
 
-  // 幅に収まるよう折り返す（英語は単語ごと、日本語は文字ごと）
+  // 幅に収まるよう折り返す
   function wrapText(g, text, maxW) {
-    const tokens = text.match(/[A-Za-z0-9'’,.!?—\-]+\s*|\s+|./g) || [];
+    // 英語と韓国語は単語（空白区切り）ごと、日本語・中国語は1文字ずつ折り返す
+    const tokens = text.match(/[A-Za-z0-9'’,.!?—\-가-힯㄰-㆏]+\s*|\s+|./g) || [];
     const rows = [];
     let row = '';
     for (const tok of tokens) {

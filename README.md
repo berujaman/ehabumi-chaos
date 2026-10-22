@@ -64,21 +64,27 @@
 
 ## 収録曲と難易度
 
-| 曲 | BPM | EASY | NORMAL | HARD |
-|---|---|---|---|---|
-| エハブミちゃんの歌 ～オーケストラ～ | 104 | Lv2 | Lv4 | Lv7 |
-| Identity Survival (フルアーマー版) | 128 | Lv3 | Lv5 | Lv9 |
-| エハブミちゃんの歌 ～フォーク～ | 136 | Lv3 | Lv6 | Lv8 |
-| 記憶のAI=SI方へ | 133 | Lv3 | Lv6 | Lv9 |
-| Absolute Headache (decent) | 136 | Lv3 | Lv6 | Lv9 |
-| 勝利への敗北 | 137 | Lv3 | Lv6 | Lv9 |
-| 完全空気エハブミさん　エンディング | 140 | Lv3 | Lv6 | Lv9 |
-| 者創り（MONOZUKURI）日本語版 | 140 | Lv3 | Lv6 | Lv9 |
-| Identity Survival (基本版) | 143 | Lv3 | Lv6 | Lv10 |
-| Absolute Headache (Berujaman's Wrath) | 146 | Lv3 | Lv6 | Lv10 |
-| 勝利への敗北 ～昭和継承風～（シャッフル） | 146 | Lv3 | Lv6 | Lv10 |
-| 完全空気エハブミさん　オープニング | 150 | Lv3 | Lv6 | Lv10 |
-| Forging Ourselves (MONOZUKURI) | 176 | Lv3 | Lv6 | Lv10 |
+| 曲 | 歌詞 | BPM | EASY | NORMAL | HARD |
+|---|---|---|---|---|---|
+| エハブミちゃんの歌 ～オーケストラ～ | 日本語 | 104 | Lv2 | Lv4 | Lv7 |
+| ライフワークノルマの歌 | 日本語 | 112 | Lv3 | Lv5 | Lv8 |
+| Identity Survival (フルアーマー版) | 日本語 | 128 | Lv3 | Lv5 | Lv9 |
+| エハブミちゃんの歌 ～フォーク～ | 日本語 | 136 | Lv3 | Lv6 | Lv8 |
+| 記憶のAI=SI方へ | 日本語 | 133 | Lv3 | Lv6 | Lv9 |
+| 기억 속 AI＝SI절 | 韓国語 | 136 | Lv3 | Lv6 | Lv9 |
+| Absolute Headache (decent) | 英語 | 136 | Lv3 | Lv6 | Lv9 |
+| Forging Ourselves (MONOZUKURI) おまけロボアニメ風 | 英語 | 137 | Lv3 | Lv6 | Lv9 |
+| 勝利への敗北 | 日本語・英語 | 137 | Lv3 | Lv6 | Lv9 |
+| 完全空気エハブミさん　エンディング | 日本語 | 140 | Lv3 | Lv6 | Lv9 |
+| 者創り（MONOZUKURI）日本語版 | 日本語 | 140 | Lv3 | Lv6 | Lv9 |
+| Identity Survival (基本版) | 日本語 | 143 | Lv3 | Lv6 | Lv10 |
+| 鑄人（MONOZUKURI） | 中国語 | 142 | Lv3 | Lv6 | Lv10 |
+| Absolute Headache (Berujaman's Wrath) | 英語 | 146 | Lv3 | Lv6 | Lv10 |
+| 勝利への敗北 ～昭和継承風～（シャッフル） | 日本語・英語 | 146 | Lv3 | Lv6 | Lv10 |
+| 完全空気エハブミさん　オープニング | 日本語 | 150 | Lv3 | Lv6 | Lv10 |
+| Forging Ourselves (MONOZUKURI) | 英語 | 176 | Lv3 | Lv6 | Lv10 |
+
+曲選択画面では、タイトルの下に歌詞の言語（日本語・英語・韓国語・中国語）が表示されます（`songs.js` の `lang`）。
 
 曲選択画面の「並び順」で、EASY / NORMAL / HARD のどのレベル順に並べるかを選べます（同じレベルなら他の難易度のレベル、BPM の順）。
 

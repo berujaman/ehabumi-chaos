@@ -170,4 +170,54 @@ RG.songs = [
       hard:   { level: 10, grid: 3, minStrength: 0.41, chordRatio: 0.08 },
     },
   },
+  {
+    // 記憶のAI=SI方への韓国語版
+    id: 'kioku_ai_si_ko',
+    title: '기억 속 AI＝SI절',
+    lang: ['韓国語'],
+    file: 'songs/kioku_ai_si_ko.mp3',
+    bpm: 136,
+    difficulties: {
+      easy:   { level: 3,  grid: 1, minStrength: 0.39, chordRatio: 0 },
+      normal: { level: 6,  grid: 2, minStrength: 0.33, chordRatio: 0.04 },
+      hard:   { level: 9,  grid: 4, minStrength: 0.24, chordRatio: 0.08 },
+    },
+  },
+  {
+    // 者創りの中国語（繁体字）版
+    id: 'monozukuri_zh',
+    title: '鑄人（MONOZUKURI）',
+    lang: ['中国語'],
+    file: 'songs/monozukuri_zh.mp3',
+    bpm: 142,
+    difficulties: {
+      easy:   { level: 3,  grid: 1, minStrength: 0.50, chordRatio: 0 },
+      normal: { level: 6,  grid: 2, minStrength: 0.46, chordRatio: 0.04 },
+      hard:   { level: 10, grid: 4, minStrength: 0.39, chordRatio: 0.08 },
+    },
+  },
+  {
+    id: 'forging_ourselves_robo',
+    title: 'Forging Ourselves (MONOZUKURI) おまけロボアニメ風',
+    lang: ['英語'],
+    file: 'songs/forging_ourselves_robo.mp3',
+    bpm: 137,
+    difficulties: {
+      easy:   { level: 3,  grid: 1, minStrength: 0.49, chordRatio: 0 },
+      normal: { level: 6,  grid: 2, minStrength: 0.47, chordRatio: 0.04 },
+      hard:   { level: 9,  grid: 4, minStrength: 0.41, chordRatio: 0.08 },
+    },
+  },
+  {
+    id: 'lifework_norma',
+    title: 'ライフワークノルマの歌',
+    lang: ['日本語'],
+    file: 'songs/lifework_norma.mp3',
+    bpm: 112,
+    difficulties: {
+      easy:   { level: 3,  grid: 1, minStrength: 0.40, chordRatio: 0 },
+      normal: { level: 5,  grid: 2, minStrength: 0.36, chordRatio: 0.04 },
+      hard:   { level: 8,  grid: 4, minStrength: 0.31, chordRatio: 0.08 },
+    },
+  },
 ];
