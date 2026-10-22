@@ -73,6 +73,9 @@ button.primary { width: 100%; padding: 12px; font-size: 18px; font-weight: bold;
 .song-list { max-height: 52vh; overflow-y: auto; padding-right: 4px; }
 .custom { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
 .custom summary { cursor: pointer; }
+.youtube-link { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #2a2f52; font-size: 13px; color: var(--muted); }
+.youtube-link a { color: #ff7b7b; font-weight: bold; }
+.youtube-link a:hover { color: #ffa0a0; }
 .row.option { margin: 4px 0; color: var(--muted); font-size: 13px; gap: 6px; }
 @media (max-width: 560px) { .song { grid-template-columns: 1fr; } }
 .result-grid { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; margin: 12px 0 20px; font-size: 15px; }
