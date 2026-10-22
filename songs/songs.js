@@ -1,5 +1,6 @@
 // 収録曲の一覧と、曲ごとの難易度設定。曲選択画面では選んだ難易度のレベル順に並び替えて表示する。
 //
+//  lang         歌詞の言語（曲選択画面のタイトルの下に表示。複数可）
 //  bpm          おおよそのテンポ（拍の追跡の手がかり。曲中でテンポが揺れても追従する）
 //  difficulties 難易度ごとの設定
 //    level        画面に出す難易度の数字（1〜12）
@@ -13,6 +14,7 @@ RG.songs = [
   {
     id: 'ehabumi_song_orchestra',
     title: 'エハブミちゃんの歌 ～オーケストラ～',
+    lang: ['日本語'],
     file: 'songs/ehabumi_song_orchestra.mp3',
     bpm: 104,
     difficulties: {
@@ -24,6 +26,7 @@ RG.songs = [
   {
     id: 'absolute_headache',
     title: 'Absolute Headache (decent)',
+    lang: ['英語'],
     file: 'songs/absolute_headache.mp3',
     bpm: 136,
     difficulties: {
@@ -35,6 +38,7 @@ RG.songs = [
   {
     id: 'kanzen_kuuki_2',
     title: '完全空気エハブミさん　エンディング',
+    lang: ['日本語'],
     file: 'songs/kanzen_kuuki_2.mp3',
     bpm: 140,
     difficulties: {
@@ -46,6 +50,7 @@ RG.songs = [
   {
     id: 'kanzen_kuuki_1',
     title: '完全空気エハブミさん　オープニング',
+    lang: ['日本語'],
     file: 'songs/kanzen_kuuki_1.mp3',
     bpm: 150,
     difficulties: {
@@ -57,6 +62,7 @@ RG.songs = [
   {
     id: 'identity_survival',
     title: 'Identity Survival (基本版)',
+    lang: ['日本語'],
     file: 'songs/identity_survival.mp3',
     bpm: 143,
     difficulties: {
@@ -68,6 +74,7 @@ RG.songs = [
   {
     id: 'absolute_headache_wrath',
     title: "Absolute Headache (Berujaman's Wrath)",
+    lang: ['英語'],
     file: 'songs/absolute_headache_wrath.mp3',
     bpm: 146,
     difficulties: {
@@ -80,6 +87,7 @@ RG.songs = [
     // 速い曲なので HARD も8分音符まで
     id: 'forging_ourselves',
     title: 'Forging Ourselves (MONOZUKURI)',
+    lang: ['英語'],
     file: 'songs/forging_ourselves.mp3',
     bpm: 176,
     difficulties: {
@@ -91,6 +99,7 @@ RG.songs = [
   {
     id: 'identity_survival_full_armor',
     title: 'Identity Survival (フルアーマー版)',
+    lang: ['日本語'],
     file: 'songs/identity_survival_full_armor.mp3',
     bpm: 128,
     difficulties: {
@@ -103,6 +112,7 @@ RG.songs = [
     // 音数が少ない曲なので HARD は Lv8 止まり
     id: 'ehabumi_song_folk',
     title: 'エハブミちゃんの歌 ～フォーク～',
+    lang: ['日本語'],
     file: 'songs/ehabumi_song_folk.mp3',
     bpm: 136,
     difficulties: {
@@ -114,6 +124,7 @@ RG.songs = [
   {
     id: 'kioku_ai_si',
     title: '記憶のAI=SI方へ',
+    lang: ['日本語'],
     file: 'songs/kioku_ai_si.mp3',
     bpm: 133,
     difficulties: {
@@ -125,6 +136,7 @@ RG.songs = [
   {
     id: 'monozukuri_jp',
     title: '者創り（MONOZUKURI）日本語版',
+    lang: ['日本語'],
     file: 'songs/monozukuri_jp.mp3',
     bpm: 140,
     difficulties: {
@@ -136,6 +148,7 @@ RG.songs = [
   {
     id: 'shouri_haiboku',
     title: '勝利への敗北',
+    lang: ['日本語', '英語'],
     file: 'songs/shouri_haiboku.mp3',
     bpm: 137,
     difficulties: {
@@ -148,6 +161,7 @@ RG.songs = [
     // 跳ねるリズム（シャッフル）なので NORMAL/HARD は3連符の格子
     id: 'shouri_haiboku_showa',
     title: '勝利への敗北 ～昭和継承風～',
+    lang: ['日本語', '英語'],
     file: 'songs/shouri_haiboku_showa.mp3',
     bpm: 146,
     difficulties: {

@@ -44,6 +44,8 @@
   let sel = null;          // { song, diff }
   let loadToken = 0;
 
+  // 歌詞の言語ラベルの色分け（songs.js の lang）
+  const LANG_CLASS = { '日本語': 'ja', '英語': 'en', '韓国語': 'ko', '中国語': 'zh' };
   const allSongs = () => [...RG.songs, ...Object.values(customSongs)];
 
   // 並び順：選んだ難易度のレベルが低い順（同じなら他の難易度のレベル → BPM の順）。選択はブラウザに覚えておく
@@ -86,8 +88,9 @@
           <span class="lv">Lv ${lv ?? '?'}</span>
           <span class="best">${best ? 'BEST ' + best.score : '—'}</span></button>`;
       }).join('');
+      const langs = (s.lang || []).map(l => `<span class="lang lang-${LANG_CLASS[l] || 'other'}">${escapeHtml(l)}</span>`).join('');
       return `<div class="song${isSel ? ' selected' : ''}"><div><div class="title">${escapeHtml(s.title)}</div>
-        <div class="meta">${escapeHtml(meta)}</div></div><div class="diffs">${buttons}</div></div>`;
+        <div class="meta">${langs}${escapeHtml(meta)}</div></div><div class="diffs">${buttons}</div></div>`;
     }).join('');
   }
 
