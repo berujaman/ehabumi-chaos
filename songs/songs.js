@@ -34,7 +34,7 @@ RG.songs = [
   },
   {
     id: 'kanzen_kuuki_2',
-    title: '完全空気エハブミさん SUNO版2',
+    title: '完全空気エハブミさん　エンディング',
     file: 'songs/kanzen_kuuki_2.mp3',
     bpm: 140,
     difficulties: {
@@ -45,7 +45,7 @@ RG.songs = [
   },
   {
     id: 'kanzen_kuuki_1',
-    title: '完全空気エハブミさん SUNO版1',
+    title: '完全空気エハブミさん　オープニング',
     file: 'songs/kanzen_kuuki_1.mp3',
     bpm: 150,
     difficulties: {

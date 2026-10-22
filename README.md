@@ -72,12 +72,12 @@
 | 記憶のAI=SI方へ | 133 | Lv3 | Lv6 | Lv9 |
 | Absolute Headache (decent) | 136 | Lv3 | Lv6 | Lv9 |
 | 勝利への敗北 | 137 | Lv3 | Lv6 | Lv9 |
-| 完全空気エハブミさん SUNO版2 | 140 | Lv3 | Lv6 | Lv9 |
+| 完全空気エハブミさん　エンディング | 140 | Lv3 | Lv6 | Lv9 |
 | 者創り（MONOZUKURI）日本語版 | 140 | Lv3 | Lv6 | Lv9 |
 | Identity Survival (基本版) | 143 | Lv3 | Lv6 | Lv10 |
 | Absolute Headache (Berujaman's Wrath) | 146 | Lv3 | Lv6 | Lv10 |
 | 勝利への敗北 ～昭和継承風～（シャッフル） | 146 | Lv3 | Lv6 | Lv10 |
-| 完全空気エハブミさん SUNO版1 | 150 | Lv3 | Lv6 | Lv10 |
+| 完全空気エハブミさん　オープニング | 150 | Lv3 | Lv6 | Lv10 |
 | Forging Ourselves (MONOZUKURI) | 176 | Lv3 | Lv6 | Lv10 |
 
 曲選択画面の「並び順」で、EASY / NORMAL / HARD のどのレベル順に並べるかを選べます（同じレベルなら他の難易度のレベル、BPM の順）。
