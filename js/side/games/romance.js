@@ -35,7 +35,7 @@
   // 選択肢は [答え, 好感度の増減, キャラの反応]
   const CHARACTERS = [
     {
-      name: 'ひなた', role: '幼なじみ', hair: '#ff9a3d', hairDark: '#d9701a', eye: '#7a4a1e', accessory: 'pin',
+      name: 'ひなた', role: '幼なじみ', image: 'hinata', hair: '#ff9a3d', hairDark: '#d9701a', eye: '#7a4a1e', accessory: 'pin',
       greeting: 'やっほー！ 今日はいっしょに過ごせるんだよね？',
       endings: {
         true: 'ずっと前から、キミのことが好きだったんだ！',
@@ -77,7 +77,7 @@
       ],
     },
     {
-      name: 'しずく', role: '生徒会長', hair: '#3a4f9a', hairDark: '#26346b', eye: '#2c3e7a', accessory: 'glasses',
+      name: 'しずく', role: '生徒会長', image: 'shizuku', hair: '#3a4f9a', hairDark: '#26346b', eye: '#2c3e7a', accessory: 'glasses',
       greeting: '……来たのね。時間どおり、悪くないわ。',
       endings: {
         true: '……あなたになら、生徒会長じゃない私を見せてもいいわ。',
@@ -119,7 +119,7 @@
       ],
     },
     {
-      name: 'ミコト', role: '不思議な転校生', hair: '#b7a8e8', hairDark: '#8a77c9', eye: '#6a4fc0', accessory: 'star',
+      name: 'ミコト', role: '不思議な転校生', image: 'mikoto', hair: '#b7a8e8', hairDark: '#8a77c9', eye: '#6a4fc0', accessory: 'star',
       greeting: '……きみ、今日は電波の調子がいいね。',
       endings: {
         true: '……きみは、わたしの惑星。ずっと周りを回ってて。',
@@ -161,6 +161,24 @@
       ],
     },
   ];
+
+  // ---- キャラの絵（img/romance/<image>_<表情>.webp）----
+  // 読み込めた表情は絵で、読み込めていない間や無い場合は図形の簡易キャラで描く
+  const EXPRESSIONS = ['normal', 'happy', 'love', 'pout', 'sad'];
+  const PORTRAIT = { x: 90, y: 68, w: 300, h: 262 };   // 絵を出す枠（セリフ欄の上）
+  const IMAGES = {};
+  for (const c of CHARACTERS) {
+    if (!c.image) continue;
+    for (const ex of EXPRESSIONS) {
+      const img = new Image();
+      img.src = `img/romance/${c.image}_${ex}.webp`;
+      IMAGES[`${c.image}_${ex}`] = img;
+    }
+  }
+  const imageFor = (ch, ex) => {
+    const img = ch.image && IMAGES[`${ch.image}_${ex}`];
+    return img && img.complete && img.naturalWidth > 0 ? img : null;
+  };
 
   function shuffle(arr) {
     const a = arr.slice();
@@ -314,6 +332,31 @@
 
     // ---- 描画 ----
     drawCharacter(g, cx, cy) {
+      const img = imageFor(this.ch, this.expression);
+      if (img) { this.drawPortrait(g, img); return; }
+      this.drawSimpleCharacter(g, cx, cy);
+    }
+
+    // 絵のキャラ：枠いっぱいに表示（はみ出す分は切り取る。顔が入るよう上寄せ）。曲の強い音で少し弾む
+    drawPortrait(g, img) {
+      const { x, w, h } = PORTRAIT;
+      const y = PORTRAIT.y - Math.sin(this.beat * Math.PI) * 4;
+      const scale = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+      const sw = w / scale, sh = h / scale;
+      const sx = (img.naturalWidth - sw) / 2, sy = (img.naturalHeight - sh) * 0.2;
+      g.save();
+      RG.roundRect(g, x, y, w, h, 14);
+      g.clip();
+      g.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+      g.restore();
+      g.strokeStyle = this.beat > 0.5 ? '#ffd6e8' : '#ff9ec0';
+      g.lineWidth = 2 + this.beat * 2;
+      RG.roundRect(g, x, y, w, h, 14);
+      g.stroke();
+    }
+
+    // 絵が無い時の簡易キャラ（図形で描く）
+    drawSimpleCharacter(g, cx, cy) {
       const c = this.ch, ex = this.expression;
       const bob = Math.sin(this.beat * Math.PI) * 4;
       cy -= bob;

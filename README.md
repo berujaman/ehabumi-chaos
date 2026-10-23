@@ -45,6 +45,8 @@
 - 恋愛シミュレーション：キャラ（ひなた・しずく・ミコト）が質問し、4択で好感度が上下。3問答えるとエンディング
   （好感度95以上 TRUE / 75以上 GOOD / 45以上 NORMAL / それ未満 BAD）。答えの矢印の位置は毎回入れ替わり、10秒答えないと「無視」で下がる。
   エンディングの後は次のキャラとのデートが始まる。質問や答えは [js/side/games/romance.js](js/side/games/romance.js) の `CHARACTERS` で増やせる。
+  キャラの絵は `img/romance/<キャラ>_<表情>.webp`（hinata / shizuku / mikoto × normal・happy・love・pout・sad、横420px程度）。
+  同じ名前で置き換えれば絵が変わる。絵が読み込めない時は図形の簡易キャラで表示される。
 - おみくじ：結果（大吉・中吉・小吉・吉・末吉・凶・大凶）、ラッキーカラー、ラッキーナンバー（1〜99）、
   一言「〜上手く行く可能性がある」（「とりあえず」「かなり」「無理かもしれないが」など15種類からランダム）を表示。
   10秒選ばないと勝手に引かれる。出やすさや一言の種類は [js/side/games/omikuji.js](js/side/games/omikuji.js) で変えられる。
@@ -147,6 +149,7 @@
 start.bat               起動用（tools/serve.py のローカルサーバー＋ブラウザ。更新したファイルがすぐ反映される）
 index.html              画面の骨組み
 songs/                  収録曲（mp3）と曲ごとの難易度設定 songs.js、歌詞タイミング lyrics/
+img/romance/            恋愛シミュレーションのキャラの絵（表情ごと）
 css/style.css
 js/config.js            調整値（まずここ）
 js/main.js              起動・画面遷移・ループ・左右のつなぎ込み
