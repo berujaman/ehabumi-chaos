@@ -9,14 +9,14 @@ RG.config = {
   approachTime: 1.4,        // ノーツが出現してから判定ラインに届くまでの秒数（難易度の指定が無い時）
   approachTimes: { easy: 1.7, normal: 1.4, hard: 1.15 },  // 難易度ごとの上の秒数（小さいほどノーツが速く流れる）
   leadIn: 3.0,              // 曲が始まるまでの待ち秒数
-  audioOffset: 0.0,
-  showLyrics: true,         // 歌詞を音ゲーの背景に表示する（曲選択画面のチェックで切替）         // 判定タイミング補正（秒）。音より判定が遅いと感じたら＋
+  audioOffset: 0.0,         // 判定タイミング補正（秒）。音より判定が遅いと感じたら＋
+  showLyrics: true,         // 歌詞を音ゲーの背景に表示する（曲選択画面のチェックで切替）
   judge: { perfect: 0.045, great: 0.09, good: 0.135 }, // 判定幅（秒, ±）
   scores: { perfect: 1000, great: 600, good: 300 },
 
   // 特典ブロック：各レーンの判定ライン下にあり、残数に応じてそのレーンの得点が増える
   bonusBlocksPerLane: 3,
-  bonusPerBlock: 0.25,      // ブロック1個あたりの得点倍率加算（3個で x1.75）
+  bonusPerBlock: 0.30,      // ブロック1個あたりの得点倍率加算（1個 x1.30 / 2個 x1.60 / 3個 x1.90）
   allBrokenPenalty: 1000,   // 全ブロックが壊れている時に攻撃を受けた場合の減点
   attackTravelTime: 0.7,    // 右から飛んでくる攻撃が着弾するまでの秒数
 

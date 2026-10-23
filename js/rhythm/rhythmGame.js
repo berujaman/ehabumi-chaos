@@ -52,6 +52,15 @@
 
     laneCenter(lane) { return LANE_X0 + LANE_W * (lane + 0.5); }
     blockPos(lane, i) { return { x: this.laneCenter(lane), y: BLOCK_Y0 + i * BLOCK_STEP + BLOCK_H / 2 }; }
+    // 特典ブロックの色：満タンは金、半分以上残っていれば橙、それより少なければ赤、無ければ灰色
+    blockStyle(count) {
+      const max = RG.config.bonusBlocksPerLane;
+      if (count >= max) return { fill: '#ffd34d', shine: '#fff5c2', text: '#ffd34d' };
+      if (count <= 0) return { fill: '#666666', shine: '#888888', text: '#666666' };
+      if (count >= max / 2) return { fill: '#ff9a3d', shine: '#ffd2a8', text: '#ffb06a' };
+      return { fill: '#ff5c5c', shine: '#ffc2c2', text: '#ff7a7a' };
+    }
+
     multiplier(lane) { return 1 + RG.config.bonusPerBlock * this.blocks[lane]; }
 
     // ---- 入力 ----
@@ -307,15 +316,16 @@
         g.fillRect(x + 6, y - 6, LANE_W - 28, 3);
       }
 
-      // 特典ブロック
+      // 特典ブロック（残りの数で色が変わる：満タン＝金、減ると橙→赤）
       for (let l = 0; l < c.lanes; l++) {
+        const style = this.blockStyle(this.blocks[l]);
         for (let b = 0; b < c.bonusBlocksPerLane; b++) {
           const x = LANE_X0 + l * LANE_W + 14, y = BLOCK_Y0 + b * BLOCK_STEP;
           roundRect(g, x, y, LANE_W - 28, BLOCK_H, 4);
           if (b < this.blocks[l]) {
-            g.fillStyle = '#ffd34d';
+            g.fillStyle = style.fill;
             g.fill();
-            g.fillStyle = '#fff5c2';
+            g.fillStyle = style.shine;
             g.fillRect(x + 4, y + 3, LANE_W - 36, 3);
           } else {
             g.strokeStyle = '#3a3f60';
@@ -329,7 +339,7 @@
         g.textAlign = 'center';
         g.fillText(c.laneLabels[l], this.laneCenter(l), 678);
         g.font = '13px sans-serif';
-        g.fillStyle = this.blocks[l] > 0 ? '#ffd34d' : '#666';
+        g.fillStyle = style.text;
         g.fillText('x' + this.multiplier(l).toFixed(2), this.laneCenter(l), 700);
       }
 
