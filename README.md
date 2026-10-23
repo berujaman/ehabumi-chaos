@@ -69,32 +69,32 @@
 
 | 曲 | 歌詞 | BPM | EASY | NORMAL | HARD |
 |---|---|---|---|---|---|
-| エハブミちゃんの歌 ～オーケストラ～ | 日本語 | 104 | Lv2 | Lv4 | Lv7 |
-| ライフワークノルマの歌 | 日本語 | 112 | Lv3 | Lv5 | Lv8 |
-| Identity Survival (フルアーマー版) | 日本語 | 128 | Lv3 | Lv5 | Lv9 |
-| エハブミちゃんの歌 ～フォーク～ | 日本語 | 136 | Lv3 | Lv6 | Lv8 |
-| 記憶のAI=SI方へ | 日本語 | 133 | Lv3 | Lv6 | Lv9 |
-| 기억 속 AI＝SI절 | 韓国語 | 136 | Lv3 | Lv6 | Lv9 |
-| Absolute Headache (decent) | 英語 | 136 | Lv3 | Lv6 | Lv9 |
-| Forging Ourselves (MONOZUKURI) おまけロボアニメ風 | 英語 | 137 | Lv3 | Lv6 | Lv9 |
-| 勝利への敗北 | 日本語・英語 | 137 | Lv3 | Lv6 | Lv9 |
-| 完全空気エハブミさん　エンディング | 日本語 | 140 | Lv3 | Lv6 | Lv9 |
-| 者創り（MONOZUKURI）日本語版 | 日本語 | 140 | Lv3 | Lv6 | Lv9 |
-| Identity Survival (基本版) | 日本語 | 143 | Lv3 | Lv6 | Lv10 |
-| 鑄人（MONOZUKURI） | 中国語 | 142 | Lv3 | Lv6 | Lv10 |
-| Absolute Headache (Berujaman's Wrath) | 英語 | 146 | Lv3 | Lv6 | Lv10 |
-| 勝利への敗北 ～昭和継承風～（シャッフル） | 日本語・英語 | 146 | Lv3 | Lv6 | Lv10 |
-| 完全空気エハブミさん　オープニング | 日本語 | 150 | Lv3 | Lv6 | Lv10 |
-| Forging Ourselves (MONOZUKURI) | 英語 | 176 | Lv3 | Lv6 | Lv10 |
+| エハブミちゃんの歌 ～オーケストラ～ | 日本語 | 104 | Lv2 | Lv4 | Lv8 |
+| エハブミちゃんの歌 ～フォーク～ | 日本語 | 136 | Lv3 | Lv4 | Lv8 |
+| 記憶のAI=SI方へ | 日本語 | 133 | Lv3 | Lv5 | Lv9 |
+| 기억 속 AI＝SI절 | 韓国語 | 136 | Lv3 | Lv5 | Lv9 |
+| 勝利への敗北 | 日本語・英語 | 137 | Lv3 | Lv5 | Lv9 |
+| Absolute Headache (Berujaman's Wrath) | 英語 | 146 | Lv3 | Lv5 | Lv9 |
+| ライフワークノルマの歌 | 日本語 | 112 | Lv3 | Lv6 | Lv10 |
+| Identity Survival (フルアーマー版) | 日本語 | 128 | Lv3 | Lv6 | Lv10 |
+| Absolute Headache (decent) | 英語 | 136 | Lv3 | Lv6 | Lv10 |
+| Forging Ourselves (MONOZUKURI) おまけロボアニメ風 | 英語 | 137 | Lv3 | Lv6 | Lv10 |
+| 勝利への敗北 ～昭和継承風～（シャッフル） | 日本語・英語 | 146 | Lv3 | Lv7 | Lv10 |
+| Identity Survival (基本版) | 日本語 | 143 | Lv3 | Lv7 | Lv11 |
+| 者創り（MONOZUKURI）日本語版 | 日本語 | 140 | Lv4 | Lv7 | Lv11 |
+| 鑄人（MONOZUKURI） | 中国語 | 142 | Lv4 | Lv7 | Lv11 |
+| 完全空気エハブミさん　エンディング | 日本語 | 140 | Lv4 | Lv8 | Lv12 |
+| 完全空気エハブミさん　オープニング | 日本語 | 150 | Lv4 | Lv8 | Lv12 |
+| Forging Ourselves (MONOZUKURI) | 英語 | 176 | Lv4 | Lv8 | Lv12 |
 
 曲選択画面では、タイトルの下に歌詞の言語（日本語・英語・韓国語・中国語）が表示されます（`songs.js` の `lang`）。
 
 曲選択画面の「並び順」で、EASY / NORMAL / HARD のどのレベル順に並べるかを選べます（同じレベルなら他の難易度のレベル、BPM の順）。
 
-- **EASY**：4分音符（拍の頭）だけ。1秒に1.1〜1.5個
-- **NORMAL**：8分音符まで（シャッフルの曲は3連符）、たまに同時押し。1秒に1.9〜2.9個
-- **HARD**：16分音符まで（速い曲は8分、シャッフルの曲は3連符）、同時押しが多め。1秒に3.2〜4.7個
-- 1秒あたりの数は曲のテンポに合わせて調整（速い曲ほど少し多い）
+- **EASY**：4分音符（拍の頭）だけ。Lv2〜4、1秒に0.9〜1.8個
+- **NORMAL**：8分音符まで（シャッフルの曲は3連符）、たまに同時押し。Lv4〜8、1秒に1.8〜3.6個
+- **HARD**：16分音符まで（速い曲は8分、シャッフルの曲は3連符）、同時押しが多め。Lv8〜12、1秒に3.5〜5.5個
+- 曲ごとのレベルは、音の多い曲ほど高くなるよう範囲内でばらけさせている（レベル ≒ 1秒あたりのノーツ数 × 2.2）
 - ノーツの流れる速さも難易度で変わる：EASY はゆっくり（1.7秒で判定ラインへ）、NORMAL は1.4秒、HARD は速め（1.15秒）。
   `config.js` の `approachTimes` で調整できます。
 

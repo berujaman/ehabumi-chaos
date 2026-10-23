@@ -9,7 +9,8 @@
 //    chordRatio   強い音の上位この割合を2つ同時押しにする
 //
 // minStrength は「1秒あたりのノーツ数」が狙いの値になるよう、曲ごとに解析して決めた値。
-// 目安: EASY 1.1〜1.5個/秒（4分音符のみ）, NORMAL 2.0〜2.8個/秒（8分まで）, HARD 3.2〜4.6個/秒（16分まで＋同時押し）
+// レベルは曲ごとにばらけるよう、EASY Lv2〜4 / NORMAL Lv4〜8 / HARD Lv8〜12 に割り振った（曲の音の多さの順）。
+// レベル ≒ 1秒あたりのノーツ数 × 2.2（例: Lv4 ≒ 1.8個/秒, Lv8 ≒ 3.6個/秒, Lv12 ≒ 5.5個/秒）
 RG.songs = [
   {
     id: 'ehabumi_song_orchestra',
@@ -18,9 +19,9 @@ RG.songs = [
     file: 'songs/ehabumi_song_orchestra.mp3',
     bpm: 104,
     difficulties: {
-      easy:   { level: 2,  grid: 1, minStrength: 0.44, chordRatio: 0 },
-      normal: { level: 4,  grid: 2, minStrength: 0.43, chordRatio: 0.04 },
-      hard:   { level: 7,  grid: 4, minStrength: 0.39, chordRatio: 0.08 },
+      easy:   { level: 2,  grid: 1, minStrength: 0.48, chordRatio: 0 },
+      normal: { level: 4,  grid: 2, minStrength: 0.44, chordRatio: 0.04 },
+      hard:   { level: 8,  grid: 4, minStrength: 0.34, chordRatio: 0.08 },
     },
   },
   {
@@ -30,9 +31,9 @@ RG.songs = [
     file: 'songs/absolute_headache.mp3',
     bpm: 136,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.48, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.43, chordRatio: 0.04 },
-      hard:   { level: 9,  grid: 4, minStrength: 0.22, chordRatio: 0.08 },
+      easy:   { level: 3,  grid: 1, minStrength: 0.52, chordRatio: 0 },
+      normal: { level: 6,  grid: 2, minStrength: 0.44, chordRatio: 0.04 },
+      hard:   { level: 10, grid: 4, minStrength: 0.18, chordRatio: 0.08 },
     },
   },
   {
@@ -42,9 +43,9 @@ RG.songs = [
     file: 'songs/kanzen_kuuki_2.mp3',
     bpm: 140,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.57, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.49, chordRatio: 0.04 },
-      hard:   { level: 9,  grid: 4, minStrength: 0.39, chordRatio: 0.08 },
+      easy:   { level: 4,  grid: 1, minStrength: 0.40, chordRatio: 0 },
+      normal: { level: 8,  grid: 2, minStrength: 0.38, chordRatio: 0.04 },
+      hard:   { level: 12, grid: 4, minStrength: 0.31, chordRatio: 0.08 },
     },
   },
   {
@@ -54,9 +55,9 @@ RG.songs = [
     file: 'songs/kanzen_kuuki_1.mp3',
     bpm: 150,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.56, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.46, chordRatio: 0.04 },
-      hard:   { level: 10, grid: 4, minStrength: 0.36, chordRatio: 0.08 },
+      easy:   { level: 4,  grid: 1, minStrength: 0.42, chordRatio: 0 },
+      normal: { level: 8,  grid: 2, minStrength: 0.36, chordRatio: 0.04 },
+      hard:   { level: 12, grid: 4, minStrength: 0.30, chordRatio: 0.08 },
     },
   },
   {
@@ -66,9 +67,9 @@ RG.songs = [
     file: 'songs/identity_survival.mp3',
     bpm: 143,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.42, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.40, chordRatio: 0.04 },
-      hard:   { level: 10, grid: 4, minStrength: 0.36, chordRatio: 0.08 },
+      easy:   { level: 3,  grid: 1, minStrength: 0.43, chordRatio: 0 },
+      normal: { level: 7,  grid: 2, minStrength: 0.36, chordRatio: 0.04 },
+      hard:   { level: 11, grid: 4, minStrength: 0.33, chordRatio: 0.08 },
     },
   },
   {
@@ -79,8 +80,8 @@ RG.songs = [
     bpm: 146,
     difficulties: {
       easy:   { level: 3,  grid: 1, minStrength: 0.28, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.27, chordRatio: 0.04 },
-      hard:   { level: 10, grid: 4, minStrength: 0.31, chordRatio: 0.08 },
+      normal: { level: 5,  grid: 2, minStrength: 0.32, chordRatio: 0.04 },
+      hard:   { level: 9,  grid: 4, minStrength: 0.34, chordRatio: 0.08 },
     },
   },
   {
@@ -91,9 +92,9 @@ RG.songs = [
     file: 'songs/forging_ourselves.mp3',
     bpm: 176,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.44, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.39, chordRatio: 0.04 },
-      hard:   { level: 10, grid: 2, minStrength: 0.29, chordRatio: 0.08 },
+      easy:   { level: 4,  grid: 1, minStrength: 0.38, chordRatio: 0 },
+      normal: { level: 8,  grid: 2, minStrength: 0.31, chordRatio: 0.04 },
+      hard:   { level: 12, grid: 2, minStrength: 0.15, chordRatio: 0.08 },
     },
   },
   {
@@ -103,9 +104,9 @@ RG.songs = [
     file: 'songs/identity_survival_full_armor.mp3',
     bpm: 128,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.44, chordRatio: 0 },
-      normal: { level: 5,  grid: 2, minStrength: 0.41, chordRatio: 0.04 },
-      hard:   { level: 9,  grid: 4, minStrength: 0.38, chordRatio: 0.08 },
+      easy:   { level: 3,  grid: 1, minStrength: 0.39, chordRatio: 0 },
+      normal: { level: 6,  grid: 2, minStrength: 0.36, chordRatio: 0.04 },
+      hard:   { level: 10, grid: 4, minStrength: 0.34, chordRatio: 0.08 },
     },
   },
   {
@@ -117,7 +118,7 @@ RG.songs = [
     bpm: 136,
     difficulties: {
       easy:   { level: 3,  grid: 1, minStrength: 0.58, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.35, chordRatio: 0.04 },
+      normal: { level: 4,  grid: 2, minStrength: 0.56, chordRatio: 0.04 },
       hard:   { level: 8,  grid: 4, minStrength: 0.20, chordRatio: 0.08 },
     },
   },
@@ -128,8 +129,8 @@ RG.songs = [
     file: 'songs/kioku_ai_si.mp3',
     bpm: 133,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.39, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.33, chordRatio: 0.04 },
+      easy:   { level: 3,  grid: 1, minStrength: 0.40, chordRatio: 0 },
+      normal: { level: 5,  grid: 2, minStrength: 0.37, chordRatio: 0.04 },
       hard:   { level: 9,  grid: 4, minStrength: 0.21, chordRatio: 0.08 },
     },
   },
@@ -140,9 +141,9 @@ RG.songs = [
     file: 'songs/monozukuri_jp.mp3',
     bpm: 140,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.39, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.35, chordRatio: 0.04 },
-      hard:   { level: 9,  grid: 4, minStrength: 0.29, chordRatio: 0.08 },
+      easy:   { level: 4,  grid: 1, minStrength: 0.36, chordRatio: 0 },
+      normal: { level: 7,  grid: 2, minStrength: 0.35, chordRatio: 0.04 },
+      hard:   { level: 11, grid: 4, minStrength: 0.29, chordRatio: 0.08 },
     },
   },
   {
@@ -153,8 +154,8 @@ RG.songs = [
     bpm: 137,
     difficulties: {
       easy:   { level: 3,  grid: 1, minStrength: 0.63, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.48, chordRatio: 0.04 },
-      hard:   { level: 9,  grid: 4, minStrength: 0.43, chordRatio: 0.08 },
+      normal: { level: 5,  grid: 2, minStrength: 0.47, chordRatio: 0.04 },
+      hard:   { level: 9,  grid: 4, minStrength: 0.40, chordRatio: 0.08 },
     },
   },
   {
@@ -166,8 +167,8 @@ RG.songs = [
     bpm: 146,
     difficulties: {
       easy:   { level: 3,  grid: 1, minStrength: 0.50, chordRatio: 0 },
-      normal: { level: 6,  grid: 3, minStrength: 0.48, chordRatio: 0.04 },
-      hard:   { level: 10, grid: 3, minStrength: 0.41, chordRatio: 0.08 },
+      normal: { level: 7,  grid: 3, minStrength: 0.45, chordRatio: 0.04 },
+      hard:   { level: 10, grid: 3, minStrength: 0.30, chordRatio: 0.08 },
     },
   },
   {
@@ -178,9 +179,9 @@ RG.songs = [
     file: 'songs/kioku_ai_si_ko.mp3',
     bpm: 136,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.39, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.33, chordRatio: 0.04 },
-      hard:   { level: 9,  grid: 4, minStrength: 0.24, chordRatio: 0.08 },
+      easy:   { level: 3,  grid: 1, minStrength: 0.35, chordRatio: 0 },
+      normal: { level: 5,  grid: 2, minStrength: 0.32, chordRatio: 0.04 },
+      hard:   { level: 9,  grid: 4, minStrength: 0.21, chordRatio: 0.08 },
     },
   },
   {
@@ -191,9 +192,9 @@ RG.songs = [
     file: 'songs/monozukuri_zh.mp3',
     bpm: 142,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.50, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.46, chordRatio: 0.04 },
-      hard:   { level: 10, grid: 4, minStrength: 0.39, chordRatio: 0.08 },
+      easy:   { level: 4,  grid: 1, minStrength: 0.44, chordRatio: 0 },
+      normal: { level: 7,  grid: 2, minStrength: 0.42, chordRatio: 0.04 },
+      hard:   { level: 11, grid: 4, minStrength: 0.36, chordRatio: 0.08 },
     },
   },
   {
@@ -203,9 +204,9 @@ RG.songs = [
     file: 'songs/forging_ourselves_robo.mp3',
     bpm: 137,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.49, chordRatio: 0 },
-      normal: { level: 6,  grid: 2, minStrength: 0.47, chordRatio: 0.04 },
-      hard:   { level: 9,  grid: 4, minStrength: 0.41, chordRatio: 0.08 },
+      easy:   { level: 3,  grid: 1, minStrength: 0.52, chordRatio: 0 },
+      normal: { level: 6,  grid: 2, minStrength: 0.45, chordRatio: 0.04 },
+      hard:   { level: 10, grid: 4, minStrength: 0.39, chordRatio: 0.08 },
     },
   },
   {
@@ -215,9 +216,9 @@ RG.songs = [
     file: 'songs/lifework_norma.mp3',
     bpm: 112,
     difficulties: {
-      easy:   { level: 3,  grid: 1, minStrength: 0.40, chordRatio: 0 },
-      normal: { level: 5,  grid: 2, minStrength: 0.36, chordRatio: 0.04 },
-      hard:   { level: 8,  grid: 4, minStrength: 0.31, chordRatio: 0.08 },
+      easy:   { level: 3,  grid: 1, minStrength: 0.32, chordRatio: 0 },
+      normal: { level: 6,  grid: 2, minStrength: 0.29, chordRatio: 0.04 },
+      hard:   { level: 10, grid: 4, minStrength: 0.22, chordRatio: 0.08 },
     },
   },
 ];
