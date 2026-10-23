@@ -284,6 +284,21 @@
     window.open(link, '_blank', 'noopener');
   }
 
+  // tweet.app（テスト版）：投稿画面を開くリンクや文章を渡す仕組みが無いので、
+  // 投稿文をクリップボードにコピーしてからアプリを開き、投稿欄に貼り付けてもらう
+  function openTweetApp(r) {
+    const url = RG.config.share.url;
+    const text = `${postText(r)}\n${hashtagText()}${url ? '\n' + url : ''}`;
+    let copied;
+    try {
+      copied = navigator.clipboard.writeText(text).then(() => true, () => false);   // タブを移る前にコピーを始める
+    } catch (e) {
+      copied = Promise.resolve(false);
+    }
+    window.open('https://app.tweet.app/feed', '_blank', 'noopener');
+    return copied;
+  }
+
   // スマホなど画像付きの共有メニューが使える環境ではそれを使い（Instagram を選べる）、
   // 使えない環境（PC）では画像を保存して Instagram を開く
   const canShareFiles = () => {
@@ -311,5 +326,5 @@
     }
   }
 
-  RG.Share = { extractCover, makeCard, postText, saveImage, openX, openLine, shareInstagram };
+  RG.Share = { extractCover, makeCard, postText, saveImage, openX, openLine, openTweetApp, shareInstagram };
 })();

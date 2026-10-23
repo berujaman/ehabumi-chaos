@@ -267,6 +267,7 @@
         <button type="button" id="shareX">X に投稿</button>
         <button type="button" id="shareLine">LINE で送る</button>
         <button type="button" id="shareInsta">Instagram</button>
+        <button type="button" id="shareTweetApp">tweet.app（テスト）</button>
       </div>
       <p class="share-status" id="shareStatus"></p>
       <div class="row"><button id="retryBtn" class="primary" type="button">もう一度</button></div>
@@ -293,6 +294,12 @@
       const how = await RG.Share.shareInstagram(shared, card);
       if (how === 'saved') shareStatus('画像を保存して Instagram を開きました。Instagram の「作成」から保存した画像を投稿してください。');
       else if (how === 'shared') shareStatus('共有メニューに渡しました。');
+    });
+    $('shareTweetApp').addEventListener('click', async () => {
+      const copied = await RG.Share.openTweetApp(shared);
+      shareStatus(copied
+        ? 'tweet.app を開きました。投稿文はコピー済みなので、投稿欄で Ctrl+V（スマホは長押しで貼り付け）してください。画像は「画像を保存」してから添付してください。'
+        : 'tweet.app を開きました。投稿文をコピーできなかったので、文章は手で入力してください。');
     });
     $('retryBtn').addEventListener('click', start);
     $('menuBtn').addEventListener('click', () => {
