@@ -11,18 +11,23 @@
   <section class="pane">
     <canvas id="rhythm" width="480" height="720"></canvas>
     <div class="pane-label">音ゲー（A S D F）</div>
-    <div class="touch-pad lanes">
-      <button type="button" data-code="KeyA">A</button><button type="button" data-code="KeyS">S</button><button type="button" data-code="KeyD">D</button><button type="button" data-code="KeyF">F</button>
-    </div>
   </section>
   <section class="pane">
     <canvas id="side" width="480" height="720"></canvas>
     <div class="pane-label" id="sideLabel">サイドゲーム（矢印キー）</div>
-    <div class="touch-pad arrows">
-      <button type="button" data-code="ArrowLeft">←</button><button type="button" data-code="ArrowUp">↑</button><button type="button" data-code="ArrowDown">↓</button><button type="button" data-code="ArrowRight">→</button><button type="button" class="pause" data-code="Escape">II</button>
-    </div>
   </section>
 </main>
+
+<!-- スマホ・タブレット用のボタン（タッチ端末の時だけ表示）。操作ボタンは画面の下、一時停止は画面の上 -->
+<div id="touchBar">
+  <div class="touch-pad lanes">
+    <button type="button" data-code="KeyA">A</button><button type="button" data-code="KeyS">S</button><button type="button" data-code="KeyD">D</button><button type="button" data-code="KeyF">F</button>
+  </div>
+  <div class="touch-pad arrows">
+    <button type="button" data-code="ArrowLeft">←</button><button type="button" data-code="ArrowUp">↑</button><button type="button" data-code="ArrowRight">→</button><button type="button" data-code="ArrowDown">↓</button>
+  </div>
+</div>
+<div class="touch-pad pause-pad"><button type="button" data-code="Escape">II 一時停止</button></div>
 
 <div id="overlay">
   <div class="panel" id="menu">
