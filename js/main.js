@@ -128,7 +128,7 @@
       console.error(err);
       if (token !== loadToken) return;
       status(location.protocol === 'file:'
-        ? '収録曲は start.bat から起動した時だけ読み込めます（ブラウザの制限のため）。'
+        ? '曲を読み込めませんでした。オフライン版のフォルダの中身がそろっているか確かめてください（オフライン版ではない場合は start.bat から起動してください）。'
         : '曲を読み込めませんでした。');
     }
   }
@@ -139,9 +139,7 @@
     let buf = song.buffer;
     if (!buf) {
       status(`${song.title} を読み込み中…`);
-      const res = await fetch(song.file);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.arrayBuffer();
+      const data = await RG.Offline.songBytes(song);
       song.cover = await RG.Share.extractCover(data);   // 結果画像に使うジャケット（デコードの前に読む）
       buf = await audio.ensure().decodeAudioData(data);
     }
@@ -163,13 +161,8 @@
   }
 
   // 歌詞のタイミング: songs/lyrics/<曲ID>.json（[{ t: 歌い出し秒, e: 歌い終わり秒, text }]）。無ければ表示しない
-  async function loadLyrics(song) {
-    try {
-      const res = await fetch(`songs/lyrics/${song.id}.json`);
-      return res.ok ? await res.json() : null;
-    } catch (e) {
-      return null;
-    }
+  function loadLyrics(song) {
+    return RG.Offline.lyrics(song);
   }
 
   function addCustomSong(id, title, buf, cover) {

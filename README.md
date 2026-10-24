@@ -147,6 +147,12 @@
 - 選べるキャラ画像は `js/config.js` の `avatars` で決めます。画像は `img/avatars/`（320×320 の webp）に置きます。
   順番の番号がパスワードに入るので、追加は末尾にしてください。
 
+## オフライン版
+
+`python tools/build_offline.py` で、ネットもサーバーも無しで index.html をダブルクリックするだけで遊べるフォルダと zip を作れます
+（リポジトリの1つ上に「エハブミカオス_オフライン版」を作成）。曲と歌詞は `songs/offline/<曲ID>.js` に埋め込まれ、
+ファイルを直接開いた時だけ `js/core/offline.js` がそこから読み込みます。
+
 ## Web での公開（GitHub Pages）
 このフォルダをそのまま GitHub のリポジトリに置き、Settings → Pages で「Deploy from a branch / main / (root)」を選ぶと公開されます。
 `.nojekyll` は、`_` で始まるファイルを GitHub Pages が無視しないようにするためのもの。歌詞タイミングの作成ツールは公開しません（`.gitignore`）。

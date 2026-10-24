@@ -195,23 +195,26 @@
   }
 
   // 収録曲からランダムに1曲流す（戻るまでくり返し）
-  function playMusic() {
+  async function playMusic() {
     stopMusic();
     const songs = RG.songs.filter(s => s.file);
     if (!songs.length) return;
     const song = songs[Math.floor(Math.random() * songs.length)];
-    const a = new Audio(song.file);
+    const a = new Audio();
+    battleMusic = a;
+    $('battleSong').textContent = `♪ ${song.title}`;
+    try { a.src = await RG.Offline.songUrl(song); } catch (e) { return; }
+    if (battleMusic !== a) return;   // 読み込み中に戻った
     a.volume = 0.5;
     a.loop = true;
     a.play().catch(() => { /* 再生できない環境ではそのまま */ });
-    battleMusic = a;
-    $('battleSong').textContent = `♪ ${song.title}`;
   }
 
   function stopMusic() {
     if (!battleMusic) return;
     battleMusic.pause();
-    battleMusic.src = '';
+    if (battleMusic.src.startsWith('blob:')) URL.revokeObjectURL(battleMusic.src);   // オフライン版で作ったもの
+    battleMusic.removeAttribute('src');
     battleMusic = null;
   }
 
