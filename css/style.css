@@ -175,11 +175,19 @@ body.touch .touch-pad { display: flex; gap: 6px; flex: 1; height: 64px; touch-ac
 /* 一時停止は画面の右上 */
 body.touch .touch-pad.pause-pad { position: fixed; top: 6px; right: 6px; height: 34px; z-index: 5; }
 .pause-pad button { flex: none; font-size: 13px; padding: 0 10px; color: var(--muted); background: rgba(28,33,64,.85); border-radius: 8px; }
-/* 縦向きのスマホ（幅の狭い画面）では、ゲーム画面を上下に並べ、ボタンは2段で一番下にまとめる */
+/* 縦向きのスマホ（幅の狭い画面）では、ゲーム画面を上下に並べ、ボタンは一番下にまとめる。
+   左に A S D F、右に矢印を、それぞれ2×2で並べる（左：A F / S D、右：↑ ↓ / ← →） */
 @media (orientation: portrait) and (max-width: 600px) {
   body.touch #stage { flex-direction: column; justify-content: center; }
   body.touch .pane { height: auto; flex: 1 1 0; min-height: 0; justify-content: center; }
   body.touch .pane canvas { width: min(calc(100vw - 12px), calc((100vh - 142px) / 3), calc((100dvh - 142px) / 3)); }
-  body.touch #touchBar { flex-direction: column; }
-  body.touch #touchBar .touch-pad { flex: none; height: 56px; }
+  body.touch #touchBar .touch-pad { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 56px 56px; height: auto; }
+  body.touch .touch-pad [data-code="KeyA"] { grid-area: 1 / 1; }
+  body.touch .touch-pad [data-code="KeyF"] { grid-area: 1 / 2; }
+  body.touch .touch-pad [data-code="KeyS"] { grid-area: 2 / 1; }
+  body.touch .touch-pad [data-code="KeyD"] { grid-area: 2 / 2; }
+  body.touch .touch-pad [data-code="ArrowUp"] { grid-area: 1 / 1; }
+  body.touch .touch-pad [data-code="ArrowDown"] { grid-area: 1 / 2; }
+  body.touch .touch-pad [data-code="ArrowLeft"] { grid-area: 2 / 1; }
+  body.touch .touch-pad [data-code="ArrowRight"] { grid-area: 2 / 2; }
 }
