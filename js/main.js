@@ -178,7 +178,8 @@
     select(id, 'normal');
   }
 
-  $('fileInput').addEventListener('change', async e => {
+  // 「ほかの音楽ファイルで遊ぶ」は画面から外したので、入力欄があるときだけつなぐ
+  if ($('fileInput')) $('fileInput').addEventListener('change', async e => {
     const file = e.target.files[0];
     if (!file) return;
     status('読み込み中…');
