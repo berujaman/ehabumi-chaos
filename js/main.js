@@ -25,7 +25,7 @@
 
   input.onPress(code => {
     if (code === 'Escape') { togglePause(); return; }
-    if (code === 'Enter' && (state === 'menu' || state === 'result') && chart) { start(); return; }
+    if (code === 'Enter' && (state === 'menu' || state === 'result') && chart && !RG.CharsUI.isOpen()) { start(); return; }
     if (state === 'result' && (code === 'ArrowDown' || code === 'ArrowUp')) {
       const grid = document.querySelector('#result .result-grid');
       if (grid) grid.scrollBy({ top: code === 'ArrowDown' ? 90 : -90, behavior: 'smooth' });
@@ -249,6 +249,9 @@
       rows.push(['h', r.name]);
       for (const [k, v] of Object.entries(r.result)) rows.push([k, v]);
     }
+    // キャラ育成：成績を今のキャラの能力値に足す
+    const grown = RG.Chars.applyPlay({ counts: c, accuracy: acc, maxCombo: rhythm.maxCombo, blocksRepaired: rhythm.blocksRepaired, side: sideResults });
+    rows.push(...RG.CharsUI.resultRows(grown));
     const shared = {
       title: sel ? sel.song.title : songName, diffName: sel ? cfg.difficultyNames[sel.diff] : '',
       level: sel ? sel.song.difficulties[sel.diff].level : '?', rank, fullCombo,
@@ -305,7 +308,7 @@
     $('menuBtn').addEventListener('click', () => {
       state = 'menu';
       $('result').classList.add('hidden');
-      $('menu').classList.remove('hidden');
+      RG.CharsUI.show('menu');
     });
   }
 

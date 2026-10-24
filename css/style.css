@@ -81,3 +81,69 @@ button.primary { width: 100%; padding: 12px; font-size: 18px; font-weight: bold;
 .result-grid { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; margin: 12px 0 20px; font-size: 15px; }
 .result-grid .v { text-align: right; font-variant-numeric: tabular-nums; }
 .result-grid .h { grid-column: 1 / -1; margin-top: 10px; color: var(--muted); font-size: 13px; border-bottom: 1px solid #2a2f52; }
+
+/* ---- キャラ育成 ---- */
+.char-bar { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 8px 12px;
+  background: #1c2140; border: 1px solid #2a2f52; border-radius: 10px; }
+.char-bar img { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; }
+.char-bar span { flex: 1; display: flex; flex-direction: column; font-size: 14px; }
+.char-bar small { color: var(--muted); font-size: 12px; }
+.char-bar button { font-size: 13px; padding: 6px 12px; }
+.panel#chars, .panel#battle { width: min(640px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow-y: auto; }
+.chars-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.chars-head h2 { margin: 0; font-size: 22px; color: #ff9ec0; }
+.chars-head button { font-size: 13px; padding: 6px 12px; }
+.slots { display: flex; gap: 8px; margin: 14px 0 6px; }
+.slot { flex: 1; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.slot img { width: 28px; height: 28px; border-radius: 6px; object-fit: cover; }
+.slot.selected { background: #3a4170; border-color: var(--accent); }
+.chars-note { color: var(--muted); font-size: 12px; margin: 4px 0 10px; }
+.chars-msg { min-height: 1.2em; color: var(--accent); font-size: 13px; margin: 10px 0 0; }
+.chars-body h3 { margin: 6px 0 10px; font-size: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; margin: 12px 0; font-size: 13px; color: var(--muted); }
+.field input, .restore input { font: inherit; font-size: 15px; color: var(--text); background: #0f1224; border: 1px solid #3a4070;
+  border-radius: 8px; padding: 8px 10px; flex: 1; min-width: 0; }
+.avatar-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.avatar-pick { padding: 4px; border-radius: 10px; }
+.avatar-pick img { display: block; width: 72px; height: 72px; border-radius: 8px; object-fit: cover; }
+.avatar-pick.selected { border-color: var(--accent2); box-shadow: 0 0 0 2px var(--accent2); background: #3a2240; }
+.restore { margin-top: 14px; color: var(--muted); font-size: 13px; }
+.restore summary { cursor: pointer; }
+.char-card { display: flex; gap: 16px; align-items: flex-start; }
+.char-img { width: 150px; height: 150px; border-radius: 12px; object-fit: cover; border: 2px solid #ff9ec0; flex: none; }
+.char-info { flex: 1; min-width: 0; }
+.char-name { font-size: 22px; font-weight: bold; }
+.char-name span { font-size: 14px; color: #ffe066; margin-left: 6px; }
+.char-rec { color: var(--muted); font-size: 12px; margin: 2px 0 8px; }
+.stat { display: grid; grid-template-columns: 4em 1fr 3em; align-items: center; gap: 8px; font-size: 13px; margin: 3px 0; }
+.sbar { height: 8px; background: #0f1224; border-radius: 4px; overflow: hidden; }
+.sbar i { display: block; height: 100%; background: linear-gradient(90deg, #2f8fb5, #5cd6ff); }
+.sval { text-align: right; font-variant-numeric: tabular-nums; font-weight: bold; }
+.pass-row code { flex: 1; min-width: 0; font-size: 15px; letter-spacing: .05em; color: #ffe066; background: #0f1224;
+  border: 1px solid #3a4070; border-radius: 8px; padding: 8px 10px; word-break: break-all; user-select: all; }
+button.fight { background: linear-gradient(90deg, #c2416b, #b5562f); border: none; font-weight: bold; }
+@media (max-width: 560px) { .char-card { flex-direction: column; align-items: center; } .char-info { width: 100%; } }
+
+/* ---- バトル画面（RPG風） ---- */
+.battle-field { display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 18px 12px; border-radius: 10px; background: linear-gradient(#1a1440, #0b0a1c 70%, #241a12); }
+.fighter { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+.fighter img { width: min(170px, 34vw); aspect-ratio: 1; border-radius: 12px; object-fit: cover; border: 2px solid #c9cde8; background: #1c2140; }
+.fname { font-weight: bold; font-size: 16px; }
+.hpbar { width: 90%; height: 10px; background: #2a1830; border: 1px solid #c9cde8; border-radius: 5px; overflow: hidden; }
+.hpbar i { display: block; height: 100%; background: #7cf29c; transition: width .35s; }
+.hpbar i.low { background: #ff6b6b; }
+.hpnum { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vs { font-size: 26px; font-weight: bold; color: #ffe066; }
+.fighter.hit img { animation: hit .4s; }
+.fighter.down img { filter: grayscale(1) brightness(.5); transition: filter .6s; }
+.fighter.a.act img { animation: lunge-a .35s; }
+.fighter.b.act img { animation: lunge-b .35s; }
+@keyframes hit { 0%, 100% { transform: translateX(0); filter: none; } 20% { transform: translateX(-8px); filter: brightness(2) saturate(0); } 50% { transform: translateX(8px); } 80% { transform: translateX(-4px); } }
+@keyframes lunge-a { 50% { transform: translateX(18px); } }
+@keyframes lunge-b { 50% { transform: translateX(-18px); } }
+.battle-msg { margin-top: 12px; min-height: 6.4em; padding: 12px 16px; background: #000; color: #fff; font-size: 16px; line-height: 1.6;
+  border: 3px double #fff; border-radius: 8px; }
+.battle-msg.win { border-color: #ffe066; }
+.battle-msg.lose { border-color: #8fa0d8; }
+.battle-buttons button { flex: 1; }

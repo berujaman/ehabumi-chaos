@@ -23,6 +23,7 @@
     <h1>エハブミカオス</h1>
     <p class="lead">左：音ゲー ／ 右：開始から10秒遅れで別のゲームが始まります。<br>
       右で撃ち漏らした敵は左の「特典ブロック」を壊し、左のコンボは右にアイテムを送ります。</p>
+    <div id="charBar" class="char-bar"></div>
     <div id="sortBar" class="sort-bar"></div>
     <div id="songList" class="song-list"></div>
     <details class="custom">
@@ -44,6 +45,8 @@
     </p>
   </div>
   <div class="panel hidden" id="result"></div>
+  <div class="panel hidden" id="chars"></div>
+  <div class="panel hidden" id="battle"></div>
 </div>
 
 <script src="js/config.js"></script>
@@ -62,6 +65,9 @@
 <script src="js/side/games/blackjack.js"></script>
 <script src="js/side/games/romance.js"></script>
 <script src="js/side/games/omikuji.js"></script>
+<script src="js/growth/character.js"></script>
+<script src="js/growth/battle.js"></script>
+<script src="js/growth/ui.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

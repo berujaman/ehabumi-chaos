@@ -6,6 +6,8 @@ RG.Input = class {
     const block = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', 'Enter']);
 
     window.addEventListener('keydown', e => {
+      // 名前やパスワードの入力欄で打っている時はゲームの操作にしない
+      if (e.target && e.target.closest && e.target.closest('input, textarea, select')) return;
       if (block.has(e.code) || RG.config.laneKeys.includes(e.code)) e.preventDefault();
       if (e.repeat) return;
       this.down.add(e.code);

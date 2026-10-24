@@ -36,6 +36,16 @@ RG.config = {
   },
   minGridFit: 0.3,          // 拍への当てはまりがこれ未満なら、格子を使わずに譜面を作る
 
+  // ---- キャラ育成 ----
+  // 選べるキャラ画像。差し替えは file を変えるだけ（正方形の画像がおすすめ。png / jpg / webp / svg）。
+  // 並び順の番号がパスワードに入るので、追加は末尾に（最大64個）。途中を消すと既存のパスワードの絵がずれる
+  avatars: [
+    { name: 'キャラ1', file: 'img/avatars/avatar1.svg' },
+    { name: 'キャラ2', file: 'img/avatars/avatar2.svg' },
+    { name: 'キャラ3', file: 'img/avatars/avatar3.svg' },
+    { name: 'キャラ4', file: 'img/avatars/avatar4.svg' },
+  ],
+
   // ---- 結果の共有 ----
   share: {
     url: 'https://berujaman.github.io/ehabumi-chaos/',   // 公開したゲームのURL（GitHub Pages）。空なら投稿文・画像にリンクを入れない
