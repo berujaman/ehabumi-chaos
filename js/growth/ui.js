@@ -9,6 +9,19 @@
   let view = 'menu';       // menu | chars | battle
   let pickAvatar = 0;      // 作成フォームで選んでいる画像
   let battleTimer = null;
+  let battleMusic = null;   // 対戦中に流す曲（収録曲からランダム）
+
+  // 練習相手（パスワードなしで対戦できる）。能力の目安：れんしゅう＝数回遊べば勝てる、ライバル＝各能力200台、チャンピオン＝各能力500前後
+  const TRAINERS = [
+    { name: 'れんしゅう', note: 'まずはここから', avatar: 3, base: 35, bias: {} },
+    { name: 'ライバル', note: '能力200台で互角', avatar: 2, base: 200, bias: { atk: 1.1, spd: 1.1, charm: 0.6 } },
+    { name: 'チャンピオン', note: '能力500前後で互角', avatar: 0, base: 500, bias: { atk: 1.1, def: 1.1, charm: 0.7 } },
+  ];
+  const trainer = t => {
+    const s = {};
+    for (const st of C.STATS) s[st.key] = Math.round(t.base * (t.bias[st.key] || 1));
+    return C.newCharacter(t.name, Math.min(t.avatar, avatars().length - 1), s);
+  };
 
   function show(name) {
     view = name;
@@ -24,8 +37,8 @@
     const ch = C.active();
     $('charBar').innerHTML = ch
       ? `<img src="${esc(avatarSrc(ch.avatar))}" alt=""><span><b>${esc(ch.name)}</b> Lv${C.level(ch)}
-         <small>プレイすると成績に応じて育ちます</small></span><button type="button" id="openChars">キャラ画面</button>`
-      : `<span><b>キャラ育成</b><small>キャラを作ると、プレイの成績で能力が育ちます。パスワードで対戦も</small></span>
+         <small>プレイすると成績に応じて育ちます。キャラ画面で対戦も出来ます</small></span><button type="button" id="openChars">キャラ画面</button>`
+      : `<span><b>キャラ育成</b><small>キャラを作ると、プレイの成績で能力が育ちます。対戦も出来ます</small></span>
          <button type="button" id="openChars">キャラを作る</button>`;
     $('openChars').addEventListener('click', () => show('chars'));
   }
@@ -106,6 +119,9 @@
       <div class="field">パスワード（対戦や復元に使います）
         <div class="row pass-row"><code id="myPass">${C.encode(ch)}</code><button type="button" id="copyPass">コピー</button></div>
       </div>
+      <div class="field">練習相手と対戦する
+        <div class="row trainers">${TRAINERS.map((t, i) => `<button type="button" class="trainer" data-t="${i}">${esc(t.name)}<small>${esc(t.note)}</small></button>`).join('')}</div>
+      </div>
       <div class="field">対戦する：相手のパスワードを入れてください
         <div class="row"><input type="text" id="enemyPass" placeholder="XXXX-XXXX-…" autocomplete="off"><button type="button" class="fight" id="fightBtn">対戦</button></div>
       </div>
@@ -125,6 +141,10 @@
       if (!enemy) { $('charsMsg').textContent = '相手のパスワードが正しくありません。打ち間違いがないか確かめてください。'; return; }
       startBattle(ch, enemy, C.encode(ch), C.encode(enemy));
     });
+    $('chars').querySelectorAll('.trainer').forEach(b => b.addEventListener('click', () => {
+      const enemy = trainer(TRAINERS[+b.dataset.t]);
+      startBattle(ch, enemy, C.encode(ch), C.encode(enemy));
+    }));
     $('deleteChar').addEventListener('click', () => {
       const d = C.load();
       d.slots[d.active] = null;
@@ -141,6 +161,7 @@
         <div class="fname">${esc(f.name)}</div>
         <div class="hpbar"><i id="hp-${cls}"></i></div><div class="hpnum" id="hpn-${cls}"></div></div>`;
     $('battle').innerHTML = `
+      <div class="battle-song" id="battleSong"></div>
       <div class="battle-field">${side(r.a, 'a')}<div class="vs">VS</div>${side(r.b, 'b')}</div>
       <div class="battle-msg" id="battleMsg"></div>
       <div class="row battle-buttons"><button type="button" id="battleFast">早送り</button><button type="button" id="battleBack" disabled>キャラ画面に戻る</button></div>`;
@@ -166,8 +187,30 @@
       finishBattle(r);
     };
     $('battleFast').addEventListener('click', () => { delay = 120; });
-    $('battleBack').addEventListener('click', () => { clearTimeout(battleTimer); show('chars'); });
+    $('battleBack').addEventListener('click', () => { clearTimeout(battleTimer); stopMusic(); show('chars'); });
+    playMusic();
     battleTimer = setTimeout(step, 500);
+  }
+
+  // 収録曲からランダムに1曲流す（戻るまでくり返し）
+  function playMusic() {
+    stopMusic();
+    const songs = RG.songs.filter(s => s.file);
+    if (!songs.length) return;
+    const song = songs[Math.floor(Math.random() * songs.length)];
+    const a = new Audio(song.file);
+    a.volume = 0.5;
+    a.loop = true;
+    a.play().catch(() => { /* 再生できない環境ではそのまま */ });
+    battleMusic = a;
+    $('battleSong').textContent = `♪ ${song.title}`;
+  }
+
+  function stopMusic() {
+    if (!battleMusic) return;
+    battleMusic.pause();
+    battleMusic.src = '';
+    battleMusic = null;
   }
 
   function flash(id, cls) {

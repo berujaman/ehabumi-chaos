@@ -147,3 +147,7 @@ button.fight { background: linear-gradient(90deg, #c2416b, #b5562f); border: non
 .battle-msg.win { border-color: #ffe066; }
 .battle-msg.lose { border-color: #8fa0d8; }
 .battle-buttons button { flex: 1; }
+.trainers { gap: 8px; margin: 0; }
+.trainer { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; font-weight: bold; }
+.trainer small { font-weight: normal; font-size: 11px; color: var(--muted); }
+.battle-song { color: #ff9ec0; font-size: 13px; margin: 0 0 8px; min-height: 1.2em; }
