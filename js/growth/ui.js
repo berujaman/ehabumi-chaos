@@ -4,7 +4,8 @@
   const $ = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
   const avatars = () => RG.config.avatars;
-  const avatarSrc = i => (avatars()[i] || avatars()[0]).file;
+  const avatarOf = i => avatars()[i] || avatars()[0];
+  const avatarSrc = i => avatarOf(i).file;
 
   let view = 'menu';       // menu | chars | battle
   let pickAvatar = 0;      // 作成フォームで選んでいる画像
@@ -14,7 +15,7 @@
   // 練習相手（パスワードなしで対戦できる）。能力の目安：れんしゅう＝数回遊べば勝てる、ライバル＝各能力200台、チャンピオン＝各能力500前後
   const TRAINERS = [
     { name: 'れんしゅう', note: 'まずはここから', avatar: 3, base: 35, bias: {} },
-    { name: 'ライバル', note: '能力200台で互角', avatar: 2, base: 200, bias: { atk: 1.1, spd: 1.1, charm: 0.6 } },
+    { name: 'ライバル', note: '能力200台で互角', avatar: 1, base: 200, bias: { atk: 1.1, spd: 1.1, charm: 0.6 } },
     { name: 'チャンピオン', note: '能力500前後で互角', avatar: 0, base: 500, bias: { atk: 1.1, def: 1.1, charm: 0.7 } },
   ];
   const trainer = t => {
@@ -66,7 +67,7 @@
 
   function createForm() {
     const list = avatars().map((a, i) => `<button type="button" class="avatar-pick${i === pickAvatar ? ' selected' : ''}" data-i="${i}" title="${esc(a.name)}">
-      <img src="${esc(a.file)}" alt="${esc(a.name)}"></button>`).join('');
+      <img src="${esc(a.file)}" alt="${esc(a.name)}"><span>${esc(a.name)}</span></button>`).join('');
     return `
       <h3>新しいキャラを作る</h3>
       <label class="field">名前（${C.NAME_MAX}文字まで）<input type="text" id="newName" maxlength="${C.NAME_MAX}" placeholder="なまえ" autocomplete="off"></label>
@@ -112,6 +113,7 @@
         <img class="char-img" src="${esc(avatarSrc(ch.avatar))}" alt="">
         <div class="char-info">
           <div class="char-name">${esc(ch.name)} <span>Lv${C.level(ch)}</span></div>
+          <div class="char-rec">画像のキャラ：${esc(avatarOf(ch.avatar).name)}</div>
           <div class="char-rec">プレイ ${ch.plays}回 ／ 対戦 ${ch.wins}勝 ${ch.losses}敗</div>
           <div class="stats">${stats}</div>
         </div>

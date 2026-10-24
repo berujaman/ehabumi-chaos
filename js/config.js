@@ -39,11 +39,15 @@ RG.config = {
   // ---- キャラ育成 ----
   // 選べるキャラ画像。差し替えは file を変えるだけ（正方形の画像がおすすめ。png / jpg / webp / svg）。
   // 並び順の番号がパスワードに入るので、追加は末尾に（最大64個）。途中を消すと既存のパスワードの絵がずれる
+  // name は画像のキャラ名（キャラ画面に表示）。名前が決まっていないものは仮の名前
   avatars: [
-    { name: 'キャラ1', file: 'img/avatars/avatar1.svg' },
-    { name: 'キャラ2', file: 'img/avatars/avatar2.svg' },
-    { name: 'キャラ3', file: 'img/avatars/avatar3.svg' },
-    { name: 'キャラ4', file: 'img/avatars/avatar4.svg' },
+    { name: '名前未定1', file: 'img/avatars/chara1.webp' },   // 赤い翼の鎧の子
+    { name: '名前未定2', file: 'img/avatars/chara2.webp' },   // 銀髪・機械の腕の子
+    { name: '名前未定3', file: 'img/avatars/chara3.webp' },   // 着物の子
+    { name: '名前未定4', file: 'img/avatars/chara4.webp' },   // 紫の丸いキャラ
+    { name: 'ミコト', file: 'img/avatars/mikoto.webp' },
+    { name: 'しずく', file: 'img/avatars/shizuku.webp' },
+    { name: 'ひなた', file: 'img/avatars/hinata.webp' },
   ],
 
   // ---- 結果の共有 ----

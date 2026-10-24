@@ -104,8 +104,9 @@ button.primary { width: 100%; padding: 12px; font-size: 18px; font-weight: bold;
 .field input, .restore input { font: inherit; font-size: 15px; color: var(--text); background: #0f1224; border: 1px solid #3a4070;
   border-radius: 8px; padding: 8px 10px; flex: 1; min-width: 0; }
 .avatar-list { display: flex; flex-wrap: wrap; gap: 8px; }
-.avatar-pick { padding: 4px; border-radius: 10px; }
+.avatar-pick { padding: 4px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; gap: 3px; }
 .avatar-pick img { display: block; width: 72px; height: 72px; border-radius: 8px; object-fit: cover; }
+.avatar-pick span { font-size: 11px; color: var(--muted); max-width: 76px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .avatar-pick.selected { border-color: var(--accent2); box-shadow: 0 0 0 2px var(--accent2); background: #3a2240; }
 .restore { margin-top: 14px; color: var(--muted); font-size: 13px; }
 .restore summary { cursor: pointer; }
@@ -114,7 +115,8 @@ button.primary { width: 100%; padding: 12px; font-size: 18px; font-weight: bold;
 .char-info { flex: 1; min-width: 0; }
 .char-name { font-size: 22px; font-weight: bold; }
 .char-name span { font-size: 14px; color: #ffe066; margin-left: 6px; }
-.char-rec { color: var(--muted); font-size: 12px; margin: 2px 0 8px; }
+.char-rec { color: var(--muted); font-size: 12px; margin: 2px 0; }
+.char-rec + .stats { margin-top: 8px; }
 .stat { display: grid; grid-template-columns: 4em 1fr 3em; align-items: center; gap: 8px; font-size: 13px; margin: 3px 0; }
 .sbar { height: 8px; background: #0f1224; border-radius: 4px; overflow: hidden; }
 .sbar i { display: block; height: 100%; background: linear-gradient(90deg, #2f8fb5, #5cd6ff); }
