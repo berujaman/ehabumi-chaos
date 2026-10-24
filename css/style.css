@@ -25,6 +25,9 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
 .panel.hidden { display: none; }
 .panel h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: .05em;
   background: linear-gradient(90deg, var(--accent2), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* タイトル画像：パネルの幅いっぱいだと大きすぎるので、高さを抑えて中央に */
+.title-art { display: block; width: 100%; max-width: 400px; height: auto; margin: 2px auto 8px; border-radius: 10px;
+  border: 1px solid #2a2f52; }
 .lead { color: var(--muted); font-size: 14px; line-height: 1.6; }
 .row { display: flex; align-items: center; gap: 12px; margin: 12px 0; flex-wrap: wrap; }
 button, select { font: inherit; color: var(--text); background: #252a48; border: 1px solid #3a4070;
