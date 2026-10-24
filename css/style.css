@@ -12,7 +12,8 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
 
 #stage { display: flex; justify-content: center; align-items: center; gap: 12px; height: 100%; padding: 12px; }
 .pane { display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; }
-.pane canvas { height: calc(100% - 28px); aspect-ratio: 2 / 3; max-width: calc(50vw - 24px);
+/* 縦横比 2:3 を保ったまま、画面の幅・高さのどちらにも収まる大きさにする（縦長のウィンドウでも縦に伸びない） */
+.pane canvas { width: min(calc(50vw - 24px), calc((100vh - 52px) * 2 / 3)); height: auto; aspect-ratio: 2 / 3;
   background: #000; border: 1px solid #2a2f52; border-radius: 6px; image-rendering: auto; }
 .pane-label { font-size: 13px; color: var(--muted); }
 
@@ -153,3 +154,27 @@ button.fight { background: linear-gradient(90deg, #c2416b, #b5562f); border: non
 .trainer { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; font-weight: bold; }
 .trainer small { font-weight: normal; font-size: 11px; color: var(--muted); }
 .battle-song { color: #ff9ec0; font-size: 13px; margin: 0 0 8px; min-height: 1.2em; }
+
+/* ---- スマホ・タブレット用のボタン（タッチ端末の時だけ表示） ---- */
+.touch-pad { display: none; }
+body.touch .touch-pad { display: flex; gap: 6px; width: 100%; height: 64px; flex: none; touch-action: none;
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+/* 画面の縦横どちらでも、左右2つのゲーム画面とボタンが収まる大きさにする（ボタンは画面の一番下） */
+body.touch .pane canvas { height: auto; max-width: none;
+  width: min(calc(50vw - 9px), calc((100vh - 84px) * 2 / 3), calc((100dvh - 84px) * 2 / 3)); }
+body.touch .pane-label { display: none; }   /* 画面を広く使うため、タッチ端末では下の説明を出さない */
+body.touch .pane canvas { margin: auto 0; }   /* 余った高さの真ん中に置き、ボタンは一番下へ */
+.touch-pad button { flex: 1; min-width: 0; padding: 0; font-size: 24px; font-weight: bold; border-radius: 12px;
+  background: #1c2140; border: 2px solid #3a4070; touch-action: none; -webkit-tap-highlight-color: transparent; }
+.touch-pad.lanes button { color: #ffe066; }
+.touch-pad.arrows button { color: #5cd6ff; }
+.touch-pad button.on { background: #3a4170; border-color: var(--accent); transform: scale(.96); }
+.touch-pad .pause { flex: .6; font-size: 16px; color: var(--muted); }
+body.touch #stage { gap: 6px; padding: 6px; }
+/* 縦向きのスマホ（幅の狭い画面）では、音ゲー（上）とサイドゲーム（下）を縦に並べて大きく表示する。タブレットは横並びのまま */
+@media (orientation: portrait) and (max-width: 600px) {
+  body.touch #stage { flex-direction: column; justify-content: flex-start; }
+  body.touch .pane { width: 100%; height: calc(50% - 3px); gap: 4px; }
+  body.touch .pane canvas { width: min(calc(100vw - 12px), calc((50vh - 70px) * 2 / 3), calc((50dvh - 70px) * 2 / 3)); }
+  body.touch .touch-pad { height: 56px; }
+}
