@@ -13,7 +13,7 @@ from datetime import date
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NAME = 'エハブミカオス_オフライン版'
-COPY = ['index.html', 'css', 'js', 'img', 'songs/songs.js']
+COPY = ['index.html', 'help.html', 'css', 'js', 'img', 'songs/songs.js']
 
 README = """エハブミカオス オフライン版（{day} 時点）
 

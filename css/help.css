@@ -1,0 +1,25 @@
+/* 遊び方・操作方法のページ（help.html）。style.css の色をそのまま使い、ページはスクロールできるようにする */
+html, body.help-page { height: auto; overflow: auto; }
+.help-doc { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; line-height: 1.75; font-size: 15px; }
+.help-doc h1 { margin: 8px 0 0; font-size: 30px; letter-spacing: .05em;
+  background: linear-gradient(90deg, var(--accent2), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.help-doc h1 .version { font-size: 14px; letter-spacing: 0; font-weight: normal; color: var(--muted); -webkit-text-fill-color: var(--muted); }
+.help-doc .lead { margin: 0 0 16px; }
+.help-doc a { color: var(--accent); }
+.help-doc section { background: var(--panel); border: 1px solid #2a2f52; border-radius: 12px; padding: 4px 20px 12px; margin: 16px 0; }
+.help-doc h2 { font-size: 20px; margin: 14px 0 8px; padding-bottom: 6px; border-bottom: 1px solid #2a2f52; }
+.help-doc ul { padding-left: 20px; margin: 8px 0; }
+.help-doc li { margin: 4px 0; }
+.help-doc .keys { color: var(--accent); font-weight: bold; margin: 8px 0; }
+.help-doc .note { color: var(--muted); font-size: 13px; }
+.help-doc table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 14px; }
+.help-doc th, .help-doc td { border: 1px solid #2a2f52; padding: 6px 10px; text-align: left; vertical-align: top; }
+.help-doc th { background: #1c2140; color: var(--muted); font-weight: normal; }
+kbd { display: inline-block; min-width: 1.8em; padding: 0 6px; text-align: center; font-family: inherit; font-size: 13px; font-weight: bold;
+  color: var(--text); background: #252a48; border: 1px solid #3a4070; border-bottom-width: 3px; border-radius: 6px; line-height: 1.6; }
+.toc { display: flex; flex-wrap: wrap; gap: 6px; }
+.toc a { font-size: 13px; padding: 4px 10px; border: 1px solid #3a4070; border-radius: 999px; background: #1c2140; text-decoration: none; color: var(--text); }
+.toc a:hover { border-color: var(--accent); }
+.back { margin: 0; font-size: 14px; }
+.back.bottom { margin-top: 24px; }
+.c-perfect { color: #ffe066; } .c-great { color: #7cf29c; } .c-good { color: #5cd6ff; } .c-miss { color: #ff6b6b; }

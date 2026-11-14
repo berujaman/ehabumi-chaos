@@ -82,6 +82,11 @@ button.primary { width: 100%; padding: 12px; font-size: 18px; font-weight: bold;
 .start-bar { position: sticky; bottom: -24px; z-index: 1; margin: 8px -28px 0; padding: 8px 28px 16px;
   background: var(--panel); border-top: 1px solid #2a2f52; box-shadow: 0 -8px 16px rgba(0,0,0,.35); }
 .start-bar #status { margin: 0 0 8px; }
+.help-link { display: block; margin-top: 8px; text-align: center; font-size: 13px; color: var(--accent); }
+.help-link:hover { color: #9de8ff; }
+/* タイトル横のバージョン表記（グラデーション文字の中でも読めるように色を付け直す） */
+.panel h1 .version { font-size: 13px; letter-spacing: 0; font-weight: normal; vertical-align: middle;
+  color: var(--muted); -webkit-text-fill-color: var(--muted); }
 .custom { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
 .custom summary { cursor: pointer; }
 .youtube-link { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #2a2f52; font-size: 13px; color: var(--muted); }

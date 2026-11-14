@@ -11,6 +11,8 @@
   const rg = $('rhythm').getContext('2d');
   const sg = $('side').getContext('2d');
 
+  document.querySelectorAll('[data-version]').forEach(el => { el.textContent = 'Ver ' + RG.version; });
+
   RG.debug = { bus, rhythm, side, audio }; // 開発用：ブラウザのコンソールから状態を確認できる
 
   let state = 'menu';   // menu | playing | paused | result
