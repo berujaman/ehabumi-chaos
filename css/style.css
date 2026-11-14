@@ -74,7 +74,14 @@ button.primary { width: 100%; padding: 12px; font-size: 18px; font-weight: bold;
 .sort-bar .sort { font-size: 12px; padding: 4px 10px; }
 .sort-bar .sort.selected { background: #3a4170; border-color: var(--accent); color: var(--text); }
 .diff.sortkey { border-color: #5a6298; }
-.song-list { max-height: 52vh; overflow-y: auto; padding-right: 4px; }
+/* 曲リストは縦を抑え（2〜3曲分）、下のスタートが目に入るようにする */
+.song-list { max-height: min(30vh, 260px); overflow-y: auto; padding-right: 4px; margin-bottom: 4px;
+  border-bottom: 1px solid #2a2f52; }
+.song-hint { margin: 0 0 8px; font-size: 12px; color: var(--muted); text-align: center; }
+/* スタート欄：メニューを下までスクロールしなくても常にパネルの下端に表示 */
+.start-bar { position: sticky; bottom: -24px; z-index: 1; margin: 8px -28px 0; padding: 8px 28px 16px;
+  background: var(--panel); border-top: 1px solid #2a2f52; box-shadow: 0 -8px 16px rgba(0,0,0,.35); }
+.start-bar #status { margin: 0 0 8px; }
 .custom { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
 .custom summary { cursor: pointer; }
 .youtube-link { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #2a2f52; font-size: 13px; color: var(--muted); }

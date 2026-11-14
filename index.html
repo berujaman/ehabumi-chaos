@@ -38,9 +38,13 @@
     <div id="charBar" class="char-bar"></div>
     <div id="sortBar" class="sort-bar"></div>
     <div id="songList" class="song-list"></div>
+    <p id="songHint" class="song-hint"></p>
     <label class="row option"><input type="checkbox" id="showLyrics" checked> 歌詞を背景に表示する</label>
-    <p id="status">曲と難易度を選んでください。</p>
-    <button id="startBtn" type="button" class="primary" disabled>スタート（Enter）</button>
+    <!-- スタートはパネルの下に固定し、スクロールしなくても見えるようにする -->
+    <div class="start-bar">
+      <p id="status">曲と難易度を選んでください。</p>
+      <button id="startBtn" type="button" class="primary" disabled>スタート（Enter）</button>
+    </div>
     <ul class="help">
       <li>音ゲー：<b>A S D F</b>（判定ラインでノーツに合わせて押す）</li>
       <li>右のゲーム：<b>矢印キー（← ↑ → ↓）だけ</b>で操作。シューティング / ブロック崩し / 格闘 / ブラックジャック / 恋愛シミュレーションが40秒ごとにランダムで切り替わり、1プレイに1度だけおみくじが出ます（操作は開始時に表示）</li>

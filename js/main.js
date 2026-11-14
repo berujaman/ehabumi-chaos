@@ -78,7 +78,9 @@
   function renderSongList() {
     $('sortBar').innerHTML = '並び順：' + DIFFS.map(d =>
       `<button type="button" class="sort ${d}${d === sortDiff ? ' selected' : ''}" data-sort="${d}">${cfg.difficultyNames[d]} のレベル順</button>`).join('');
-    $('songList').innerHTML = sortedSongs().map(s => {
+    const list = sortedSongs();
+    $('songHint').textContent = `全${list.length}曲 ・ ▼ リストの中をスクロールすると他の曲も選べます`;
+    $('songList').innerHTML = list.map(s => {
       const isSel = sel && sel.song.id === s.id;
       const meta = [s.bpm ? `BPM ${s.bpm}` : null, s.duration ? fmtTime(s.duration) : null].filter(Boolean).join(' ・ ');
       const buttons = DIFFS.map(d => {
